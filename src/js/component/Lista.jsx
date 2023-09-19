@@ -5,7 +5,7 @@ const Lista = () => {
   // Estados declarados
   const [tarea, setTarea] = useState(""); // Estado para almacenar la tarea actual
   const [list, setList] = useState([]); // Estado para almacenar la lista de tareas
-  const urlJh = 'https://playground.4geeks.com/apis/fake/todos/user/Jegdjegd';
+  const urlJh = 'https://playground.4geeks.com/apis/fake/todos/user/jegdjegd';
   const counter = list.length
 
 
@@ -83,10 +83,14 @@ const Lista = () => {
   };
 
   const removeAll =  () => {
-    setList([]); // Actualizar el estado con la nueva lista vacía
+    const updatedList = list.map(() => {
+      return []; // This will create a new empty array for each item in the list.
+    });
+    setList(updatedList); // Update the state with the new empty list.
     console.log(list)
-    // actualizarTarea(list); // Actualizar la nueva lista vacía en la API
+    // actualizarTarea(list); // Update the new empty list in the API.
   };
+  
 
 
   return (

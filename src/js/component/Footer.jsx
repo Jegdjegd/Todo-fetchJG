@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/index.css"
 
-const Footer = ({ counter,removeAll}) => {
+const Footer = ({counter,removeAll}) => {
 
 
     return (

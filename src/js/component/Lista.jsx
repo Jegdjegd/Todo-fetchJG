@@ -5,7 +5,7 @@ const Lista = () => {
   // Estados declarados
   const [tarea, setTarea] = useState(""); // Estado para almacenar la tarea actual
   const [list, setList] = useState([]); // Estado para almacenar la lista de tareas
-  const urlJh = 'https://playground.4geeks.com/apis/fake/todos/user/jegd';
+  const urlJh = 'https://playground.4geeks.com/apis/fake/todos/user/Jegdjegd';
   const counter = list.length
 
 
@@ -84,7 +84,8 @@ const Lista = () => {
 
   const removeAll =  () => {
     setList([]); // Actualizar el estado con la nueva lista vacía
-    actualizarTarea(list); // Actualizar la nueva lista vacía en la API
+    console.log(list)
+    // actualizarTarea(list); // Actualizar la nueva lista vacía en la API
   };
 
 
@@ -111,7 +112,7 @@ const Lista = () => {
                   type="button"
                   className="btn-close"
                   aria-label="Close"
-                  onClick={() => handleDelete(index)} // Llama a handleDelete al hacer clic en el botón
+                  onClick={() => handleDelete(index)}
                 ></button>
               </li>         
               </>

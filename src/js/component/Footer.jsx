@@ -16,7 +16,10 @@ const Footer = ({counter,removeAll}) => {
         <button 
           type="button" 
           className="btn btn-danger rounded my-2 mr-1 "
-          onClick={removeAll}
+          onClick={()=>{
+            removeAll();
+            window.location.reload(true);
+          }}
           >Delete All
         </button>
         </div>

@@ -59,10 +59,6 @@ const Lista = () => {
     }
   }
 
-  // Se ejecuta al cargar el componente
-  useEffect(() => {
-    crearUsuario(); // Crea el usuario al cargar la página
-  }, []);
 
   // Añade una tarea al presionar Enter
   const añadeTareas = (e) =>  {
@@ -79,18 +75,29 @@ const Lista = () => {
   const handleDelete = (index) => {
     const updatedList = list.filter((_, currentIndex) => index !== currentIndex);
     setList(updatedList); // Actualiza el estado de la lista
-    actualizarTarea(updatedList); // Actualiza las tareas en la API
-  };
-
-  const removeAll =  () => {
-    const updatedList = list.map(() => {
-      return []; // This will create a new empty array for each item in the list.
-    });
-    setList(updatedList); // Update the state with the new empty list.
-    console.log(list)
-    // actualizarTarea(list); // Update the new empty list in the API.
+    actualizarTarea(updatedList); 
   };
   
+
+
+   
+  const removeAll=() => {
+    
+  
+   fetch(urlJh, {
+				method: "DELETE",
+				headers: {
+				  "Content-Type": "application/json"
+				}
+			  })
+			.then((response)=>response.json());
+    
+  }
+
+  useEffect(() => {
+    crearUsuario(); // Crea el usuario al cargar la página
+    alert('Presionar dos veces el Delete All para generar cambios efectivos en la lista');
+  }, []);
 
 
   return (
